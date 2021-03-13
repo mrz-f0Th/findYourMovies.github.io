@@ -14,8 +14,8 @@ $('.search-button').on('click', ()=> {
                 $.ajax({
                     url: 'https://www.omdbapi.com/?apikey=415a8604&i=' + $(this).data('imdbid'),
                     success: md => {
-                        let modal = tampilModal(md);
-                        $('.modal').html(modal);
+                        const modal = tampilModal(md);
+                        $('.modal-body').html(modal);
                     },
                     error: e => {
                         console.log(e.responseText);
@@ -45,36 +45,24 @@ function tampilFilm(mv) {
 }
 
 function tampilModal(md) {
-    return `<div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modal-movieLabel">${md.Title}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    return `<div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="${md.Poster}" class="img-fluid">
                     </div>
-                    <div class="modal-body">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <img src="${md.Poster}" class="img-fluid">
-                                </div>
-                                <div class="col-md">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <h4>Avengers (2022)</h4>
-                                        </li>
-                                        <li class="list-group-item"><strong>Director : </strong>${md.Title} ${md.Year}</li>
-                                        <li class="list-group-item"><strong>Actors : </strong>${md.Director}</li>
-                                        <li class="list-group-item"><strong>Writer : </strong>${md.Actors}</li>
-                                        <li class="list-group-item"><strong>Plot : </strong> <br>${md.Plot} mempunyai
-                                            kekuatan
-                                            untuk menguasai Bumi</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="col-md">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h4>Avengers (2022)</h4>
+                            </li>
+                            <li class="list-group-item"><strong>Director : </strong>${md.Title} ${md.Year}
+                            </li>
+                            <li class="list-group-item"><strong>Actors : </strong>${md.Director}</li>
+                            <li class="list-group-item"><strong>Writer : </strong>${md.Actors}</li>
+                            <li class="list-group-item"><strong>Plot : </strong> <br>${md.Plot} mempunyai
+                                kekuatan
+                                untuk menguasai Bumi</li>
+                        </ul>
                     </div>
                 </div>
             </div>`
