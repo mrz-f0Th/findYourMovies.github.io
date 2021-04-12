@@ -34,7 +34,6 @@
 
 
 // Using Fetch 
-
 const btnTrigger = document.querySelector('.search-button');
 btnTrigger.addEventListener('click', ()=> {
 
@@ -94,9 +93,7 @@ function tampilModal(md) {
                             </li>
                             <li class="list-group-item"><strong>Actors : </strong>${md.Actors}</li>
                             <li class="list-group-item"><strong>Writer : </strong>${md.Writer}</li>
-                            <li class="list-group-item"><strong>Plot : </strong> <br>${md.Plot} mempunyai
-                                kekuatan
-                                untuk menguasai Bumi</li>
+                            <li class="list-group-item"><strong>Plot : </strong> <br>${md.Plot}</li>
                         </ul>
                     </div>
                 </div>
